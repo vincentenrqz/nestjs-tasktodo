@@ -1,0 +1,28 @@
+### Get all task types
+GET http://localhost:3000/tasktypes 
+
+### Create a task type
+POST http://localhost:3000/tasktypes
+content-type: application/json
+
+{
+    "taskName": "Home Clean",
+    "status": "Pending",
+    "completedAt": ""
+}
+
+### Find a task type
+GET http://localhost:3000/tasktypes/65f856915b3fc6b259a91f6f
+
+### Update a task type
+PUT http://localhost:3000/tasktypes/65f856915b3fc6b259a91f6f
+content-type: application/json
+
+{
+    "taskName": "Oh shet",
+    "status": "Finished",
+    "completedAt": ""
+}
+
+### Delete a task type
+DELETE http://localhost:3000/tasktypes/65f8589de69f1e2e570f5c25
