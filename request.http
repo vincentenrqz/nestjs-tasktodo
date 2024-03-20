@@ -6,7 +6,7 @@ POST http://localhost:3000/tasktypes
 content-type: application/json
 
 {
-    "taskName": "Home Clean",
+    "taskName": "Upgrade version",
     "status": "Pending",
     "completedAt": ""
 }
@@ -15,14 +15,46 @@ content-type: application/json
 GET http://localhost:3000/tasktypes/65f856915b3fc6b259a91f6f
 
 ### Update a task type
-PUT http://localhost:3000/tasktypes/65f856915b3fc6b259a91f6f
+PUT http://localhost:3000/tasktypes/65fa9cd857cd34b6d6714f68
 content-type: application/json
 
 {
-    "taskName": "Oh shet",
+    "taskName": "Home Clean",
     "status": "Finished",
     "completedAt": ""
 }
 
 ### Delete a task type
-DELETE http://localhost:3000/tasktypes/65f8589de69f1e2e570f5c25
+DELETE http://localhost:3000/tasktypes/65fa96b88119e12cef3f5982
+
+### Assign a user id to a tasktype
+PATCH http://localhost:3000/tasktypes/65faf882869112af80dcdd3c/assign-user/65faf8f2869112af80dcdd48
+
+### Create a user
+POST http://localhost:3000/users
+content-type: application/json
+
+{
+    "firstName": "Vincent",
+    "lastName": "Enriquez",
+    "email": "agent1@gmail.com"
+}
+
+### Get users
+GET http://localhost:3000/users
+
+### Update a user
+PUT http://localhost:3000/users/65faa84f1a596c0024704f14
+content-type: application/json
+
+{
+    "firstName": "Agent new",
+    "lastName": "Agent new"
+}
+
+### Get user by id
+GET http://localhost:3000/users/65faf8a9869112af80dcdd3e
+
+
+### Delete a user
+DELETE http://localhost:3000/users/65fa9b007b43a5a0f2d59bd3

@@ -6,9 +6,10 @@ export class CreateTaskTypeDto {
   taskName: string;
 
   @IsString()
-  @IsOptional()
+  @IsNotEmpty()
   status: string;
 
-  @IsString()
-  completedAt?: Date;
+  // @IsString()
+  // @IsOptional()
+  // assignedBy: Date;
 }

@@ -16,5 +16,6 @@ import { TaskType, TaskTypeSchema } from './schemas/tasktype.schema';
   ],
   controllers: [TasktypesController],
   providers: [TaskTypesService, TaskTypesRepository],
+  exports: [TaskTypesService],
 })
 export class TasktypesModule {}

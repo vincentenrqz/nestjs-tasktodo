@@ -9,7 +9,7 @@ export class UpdateTaskTypeDto {
   @IsOptional()
   status: string;
 
-  @IsString()
-  @IsOptional()
-  completedAt?: Date;
+  // @IsString()
+  // @IsOptional()
+  // assignedBy?: string;
 }

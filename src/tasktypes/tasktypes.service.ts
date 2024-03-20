@@ -3,8 +3,7 @@ import { CreateTaskTypeDto } from './dtos/create-tasktype.dto';
 import { UpdateTaskTypeDto } from './dtos/update.tasktype.dto';
 import { TaskTypesRepository } from './tasktypes.repository';
 import { Injectable } from '@nestjs/common';
-import { TaskType } from './schemas/tasktype.schema';
-import { Model } from 'mongoose';
+import { TaskType, TaskTypeDocument } from './schemas/tasktype.schema';
 
 @Injectable()
 export class TaskTypesService {
@@ -27,5 +26,10 @@ export class TaskTypesService {
 
   deleteTaskType(id: string) {
     return this.tasktypes.deleteTaskType(id);
+  }
+
+  // Task and user relations
+  assignAgent(id: string, userId: string) {
+    return this.tasktypes.assignAgent(id, userId);
   }
 }

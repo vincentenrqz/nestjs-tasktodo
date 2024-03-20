@@ -10,6 +10,7 @@ import {
   UsePipes,
   ValidationPipe,
   HttpException,
+  Patch,
 } from '@nestjs/common';
 import { TaskTypesService } from './tasktypes.service';
 import { CreateTaskTypeDto } from './dtos/create-tasktype.dto';
@@ -63,5 +64,16 @@ export class TasktypesController {
     if (!isValid) throw new HttpException('invalid id', 404);
     const isDeleted = await this.tasktypes.deleteTaskType(id);
     if (!isDeleted) throw new HttpException('Id not found', 404);
+  }
+
+  @Patch('/:id/assign-user/:userId')
+  @UsePipes(new ValidationPipe())
+  assignAgent(@Param('id') id: string, @Param('userId') userId: string) {
+    const isValidId = mongoose.Types.ObjectId.isValid(id);
+    const isValidUserId = mongoose.Types.ObjectId.isValid(userId);
+
+    if (!isValidId && !isValidUserId)
+      throw new HttpException('Invalid ID and Agent ID', 404);
+    return this.tasktypes.assignAgent(id, userId);
   }
 }

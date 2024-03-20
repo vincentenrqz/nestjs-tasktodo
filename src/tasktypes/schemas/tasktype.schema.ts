@@ -1,9 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import { User } from 'src/users/schemas/users.schema';
 
 export type TaskTypeDocument = TaskType & Document;
 
-@Schema()
+@Schema({ timestamps: true })
 export class TaskType {
   @Prop({ required: true })
   taskName: string;
@@ -13,6 +14,13 @@ export class TaskType {
 
   @Prop({ required: false })
   completedAt?: string;
+
+  @Prop({
+    required: false,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: User.name,
+  })
+  assignedBy: User;
 }
 
 export const TaskTypeSchema = SchemaFactory.createForClass(TaskType);
